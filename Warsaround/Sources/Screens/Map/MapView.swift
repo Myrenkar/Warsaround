@@ -29,5 +29,6 @@ final class MapView: BaseView {
     override func setupProperties() {
         functionButton.setTitle("Change", for: .normal)
         functionButton.setTitleColor(.red, for: .normal)
+        mapView.showsUserLocation = true
     }
 }
