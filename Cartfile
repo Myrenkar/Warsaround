@@ -1,0 +1,7 @@
+#
+# Cartfile
+#
+# Copyright (c) 2017 Smartapps Piotr Torczynski
+#
+
+github "leoneparise/GoogleMaps-Carthage" ~> 2.1.0

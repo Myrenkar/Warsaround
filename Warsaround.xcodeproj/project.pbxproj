@@ -143,6 +143,7 @@
 				730FAC611E3D1D19002DE48C /* Sources */,
 				730FAC621E3D1D19002DE48C /* Frameworks */,
 				730FAC631E3D1D19002DE48C /* Resources */,
+				734625D61E3D243B00466527 /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +230,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		734625D61E3D243B00466527 /* Copy Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/GooglePlaces.framework",
+			);
+			name = "Copy Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		730FAC611E3D1D19002DE48C /* Sources */ = {
@@ -425,6 +444,7 @@
 				730FAC841E3D1D1A002DE48C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		730FAC851E3D1D1A002DE48C /* Build configuration list for PBXNativeTarget "WarsaroundTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +453,7 @@
 				730FAC871E3D1D1A002DE48C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
