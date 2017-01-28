@@ -10,4 +10,13 @@ import UIKit
 
 internal final class MapViewController: UIViewController {
 
+    fileprivate var mapView = MapView(frame: .zero)
+
+    override func loadView() {
+        view = mapView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
