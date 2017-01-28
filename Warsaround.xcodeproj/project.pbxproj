@@ -14,6 +14,8 @@
 		734625DF1E3D271200466527 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DE1E3D271200466527 /* MapView.swift */; };
 		734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DC1E3D26DA00466527 /* MapViewController.swift */; };
 		734625F21E3D306800466527 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F11E3D306800466527 /* BaseView.swift */; };
+		734625F51E3D3A4500466527 /* PlacesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F41E3D3A4500466527 /* PlacesProvider.swift */; };
+		734625F81E3D3B0100466527 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F71E3D3B0100466527 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		734625EB1E3D2F3100466527 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		734625EC1E3D2F5000466527 /* Tests-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Tests-Development.xcconfig"; path = "Configuration/Tests-Development.xcconfig"; sourceTree = "<group>"; };
 		734625F11E3D306800466527 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseView.swift; path = Views/Abstract/BaseView.swift; sourceTree = "<group>"; };
+		734625F41E3D3A4500466527 /* PlacesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesProvider.swift; path = Helpers/PlacesProvider.swift; sourceTree = "<group>"; };
+		734625F71E3D3B0100466527 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 		730FAC931E3D1EBC002DE48C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				734625F61E3D3AE900466527 /* Models */,
+				734625F31E3D3A2C00466527 /* Helpers */,
 				734625ED1E3D301200466527 /* Views */,
 				734625D71E3D264E00466527 /* Core */,
 				734625D81E3D267700466527 /* Screens */,
@@ -205,6 +211,22 @@
 				734625F11E3D306800466527 /* BaseView.swift */,
 			);
 			name = Abstract;
+			sourceTree = "<group>";
+		};
+		734625F31E3D3A2C00466527 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				734625F41E3D3A4500466527 /* PlacesProvider.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		734625F61E3D3AE900466527 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				734625F71E3D3B0100466527 /* Place.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +335,7 @@
 			);
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/PureLayout.framework",
+				"$(_CARTHAGE_BUILD_PATH)/HDAugmentedReality.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -329,7 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */,
+				734625F51E3D3A4500466527 /* PlacesProvider.swift in Sources */,
 				730FAC9C1E3D1F28002DE48C /* AppDelegate.swift in Sources */,
+				734625F81E3D3B0100466527 /* Place.swift in Sources */,
 				734625DF1E3D271200466527 /* MapView.swift in Sources */,
 				734625F21E3D306800466527 /* BaseView.swift in Sources */,
 			);

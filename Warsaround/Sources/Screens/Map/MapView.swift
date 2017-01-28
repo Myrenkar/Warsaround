@@ -6,8 +6,8 @@
 //  Copyright © 2017 SmartApps. All rights reserved.
 //
 
-import PureLayout
 import MapKit
+import PureLayout
 
 final class MapView: BaseView {
 
