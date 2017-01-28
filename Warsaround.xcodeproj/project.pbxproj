@@ -13,6 +13,7 @@
 		730FAC9D1E3D1FA8002DE48C /* WarsaroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */; };
 		734625DF1E3D271200466527 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DE1E3D271200466527 /* MapView.swift */; };
 		734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DC1E3D26DA00466527 /* MapViewController.swift */; };
+		734625F21E3D306800466527 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F11E3D306800466527 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		734625EA1E3D2E9600466527 /* Tests-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Tests-Common.xcconfig"; path = "Configuration/Tests-Common.xcconfig"; sourceTree = "<group>"; };
 		734625EB1E3D2F3100466527 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		734625EC1E3D2F5000466527 /* Tests-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Tests-Development.xcconfig"; path = "Configuration/Tests-Development.xcconfig"; sourceTree = "<group>"; };
+		734625F11E3D306800466527 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseView.swift; path = Views/Abstract/BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		730FAC931E3D1EBC002DE48C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				734625ED1E3D301200466527 /* Views */,
 				734625D71E3D264E00466527 /* Core */,
 				734625D81E3D267700466527 /* Screens */,
 			);
@@ -186,6 +189,22 @@
 				734625EC1E3D2F5000466527 /* Tests-Development.xcconfig */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		734625ED1E3D301200466527 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				734625F01E3D305D00466527 /* Abstract */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		734625F01E3D305D00466527 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				734625F11E3D306800466527 /* BaseView.swift */,
+			);
+			name = Abstract;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +331,7 @@
 				734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */,
 				730FAC9C1E3D1F28002DE48C /* AppDelegate.swift in Sources */,
 				734625DF1E3D271200466527 /* MapView.swift in Sources */,
+				734625F21E3D306800466527 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
