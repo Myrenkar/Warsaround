@@ -110,6 +110,21 @@ extension MapViewController: ARDataSource {
 
 extension MapViewController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
-        print("Tapped view for POI: \(annotationView.titleLabel?.text)")
+        if let annotation = annotationView.annotation as? Place {
+            let placesLoader = PlacesProvider()
+            placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+                if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
+                    annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
+                    annotation.website = infoDict.object(forKey: "website") as? String
+                    self.showInfoView(forPlace: annotation)
+                }
+            }
+        }
+    }
+    
+    func showInfoView(forPlace place: Place) {
+        let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        arViewController.present(alert, animated: true, completion: nil)
     }
 }
