@@ -1,0 +1,19 @@
+//
+//  Development.xcconfig
+//  Warsaround
+//
+//  Created by Piotr Torczynski on 28/01/2017.
+//  Copyright © 2017 SmartApps. All rights reserved.
+//
+
+#include "../../Carthage/Checkouts/xcconfigs/Base/Configurations/Debug.xcconfig"
+#include "Common.xcconfig"
+
+
+_ENVIRONMENT = ENV_DEVELOPMENT
+_BUNDLE_IDENTIFIER = co.smartapss.Warsaround
+
+_CODE_SIGN_IDENTITY = iPhone Developer
+_PROVISIONING_PROFILE_SPECIFIER =
+
+_PRODUCT_NAME = Warsaround (Development)

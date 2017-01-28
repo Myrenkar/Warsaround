@@ -4,4 +4,7 @@
 # Copyright (c) 2017 Smartapps Piotr Torczynski
 #
 
+github "jspahrsummers/xcconfigs" "master"
+
 github "leoneparise/GoogleMaps-Carthage" ~> 2.1.0
+github "PureLayout/PureLayout" ~> 3.0

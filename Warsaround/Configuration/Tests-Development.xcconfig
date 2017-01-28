@@ -1,0 +1,13 @@
+//
+//  Tests-Development.xcconfig
+//  Warsaround
+//
+//  Created by Piotr Torczynski on 28/01/2017.
+//  Copyright © 2017 SmartApps. All rights reserved.
+//
+
+#include "../../Carthage/Checkouts/xcconfigs/Base/Configurations/Test.xcconfig"
+#include "../../Carthage/Checkouts/xcconfigs/iOS/iOS-Application.xcconfig"
+#include "Tests-Common.xcconfig"
+
+_BUNDLE_IDENTIFIER = co.smartapss.Warsaround.tests.development

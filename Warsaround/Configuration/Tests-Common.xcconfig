@@ -1,0 +1,20 @@
+//
+//  Tests-Common.xcconfig
+//  Warsaround
+//
+//  Created by Piotr Torczynski on 28/01/2017.
+//  Copyright © 2017 SmartApps. All rights reserved.
+//
+
+#include "Base-Common.xcconfig"
+
+_ENVIRONMENT = ENV_TESTS
+
+_PRODUCT_NAME = FitnessApp Tests
+_INFOPLIST = $(SRCROOT)/Warsaround/Resources/Plists/Tests-Info.plist
+
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/Warsaround.app/Warsaround
+BUNDLE_LOADER = $(TEST_HOST)
+
+_CODE_SIGN_IDENTITY = iPhone Developer
+_CODE_SIGN_DEVELOPMENT_TEAM =
