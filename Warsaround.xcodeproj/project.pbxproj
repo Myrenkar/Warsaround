@@ -18,6 +18,8 @@
 		734625F81E3D3B0100466527 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F71E3D3B0100466527 /* Place.swift */; };
 		734626551E3D49A100466527 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626541E3D49A100466527 /* PlaceAnnotation.swift */; };
 		734626581E3D4BFB00466527 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626571E3D4BFB00466527 /* Annotation.swift */; };
+		734626611E3DE2F500466527 /* MapFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626601E3DE2F500466527 /* MapFlowController.swift */; };
+		734626641E3DE31F00466527 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626631E3DE31F00466527 /* FlowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		734625F71E3D3B0100466527 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		734626541E3D49A100466527 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceAnnotation.swift; path = Screens/PlaceAnnotation/PlaceAnnotation.swift; sourceTree = "<group>"; };
 		734626571E3D4BFB00466527 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = Views/Annotation/Annotation.swift; sourceTree = "<group>"; };
+		734626601E3DE2F500466527 /* MapFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFlowController.swift; sourceTree = "<group>"; };
+		734626631E3DE31F00466527 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowController.swift; path = Screens/Abstract/FlowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 		734625D81E3D267700466527 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				734626621E3DE30700466527 /* Abstract */,
+				7346265F1E3DE2DB00466527 /* FlowControllers */,
 				734626531E3D498500466527 /* PlaceAnnotation */,
 				734625DB1E3D26AD00466527 /* Map */,
 			);
@@ -249,6 +255,22 @@
 				734626571E3D4BFB00466527 /* Annotation.swift */,
 			);
 			name = Annotation;
+			sourceTree = "<group>";
+		};
+		7346265F1E3DE2DB00466527 /* FlowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				734626601E3DE2F500466527 /* MapFlowController.swift */,
+			);
+			name = FlowControllers;
+			sourceTree = "<group>";
+		};
+		734626621E3DE30700466527 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				734626631E3DE31F00466527 /* FlowController.swift */,
+			);
+			name = Abstract;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,7 +399,9 @@
 				734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */,
 				734625F51E3D3A4500466527 /* PlacesProvider.swift in Sources */,
 				730FAC9C1E3D1F28002DE48C /* AppDelegate.swift in Sources */,
+				734626641E3DE31F00466527 /* FlowController.swift in Sources */,
 				734625F81E3D3B0100466527 /* Place.swift in Sources */,
+				734626611E3DE2F500466527 /* MapFlowController.swift in Sources */,
 				734625DF1E3D271200466527 /* MapView.swift in Sources */,
 				734625F21E3D306800466527 /* BaseView.swift in Sources */,
 				734626581E3D4BFB00466527 /* Annotation.swift in Sources */,
