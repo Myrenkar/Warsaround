@@ -1,5 +1,5 @@
 //
-//  APIClient.swift
+//  APIResponse.swift
 //  Warsaround
 //
 //  Created by Piotr Torczynski on 19/02/2017.
@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+internal struct APIResponse {
+    let data: Data?
+    let response: HTTPURLResponse
+}
