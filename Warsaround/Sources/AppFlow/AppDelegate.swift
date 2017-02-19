@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let viewController = MapFlowController()
         guard let window  = window else {
             return false
         }
-        window.rootViewController = viewController.rootViewController
-        window.makeKeyAndVisible()
+
+        let appController = AppController()
+        appController.presentRootController(inWindow: window)
         return true
     }
 }

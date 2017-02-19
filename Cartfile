@@ -8,3 +8,4 @@ github "jspahrsummers/xcconfigs" "master"
 
 github "PureLayout/PureLayout" ~> 3.0
 github "Myrenkar/HDAugmentedReality" ~> 1.5
+github "ReactiveX/RxSwift" ~> 3.1

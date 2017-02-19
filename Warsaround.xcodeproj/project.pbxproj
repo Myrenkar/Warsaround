@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		730FAC8E1E3D1E75002DE48C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC8A1E3D1E75002DE48C /* Assets.xcassets */; };
 		730FAC921E3D1E8C002DE48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */; };
-		730FAC9C1E3D1F28002DE48C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FAC9B1E3D1F28002DE48C /* AppDelegate.swift */; };
 		730FAC9D1E3D1FA8002DE48C /* WarsaroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */; };
 		734625DF1E3D271200466527 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DE1E3D271200466527 /* MapView.swift */; };
 		734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DC1E3D26DA00466527 /* MapViewController.swift */; };
@@ -18,8 +17,16 @@
 		734625F81E3D3B0100466527 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F71E3D3B0100466527 /* Place.swift */; };
 		734626551E3D49A100466527 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626541E3D49A100466527 /* PlaceAnnotation.swift */; };
 		734626581E3D4BFB00466527 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626571E3D4BFB00466527 /* Annotation.swift */; };
-		734626611E3DE2F500466527 /* MapFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626601E3DE2F500466527 /* MapFlowController.swift */; };
 		734626641E3DE31F00466527 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734626631E3DE31F00466527 /* FlowController.swift */; };
+		73FDD19E1E59BF4600F8DDC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD19D1E59BF4600F8DDC3 /* AppDelegate.swift */; };
+		73FDD1A31E59BF8100F8DDC3 /* MapFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1A21E59BF8100F8DDC3 /* MapFlowController.swift */; };
+		73FDD1A71E59BFB900F8DDC3 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1A61E59BFB900F8DDC3 /* AppController.swift */; };
+		73FDD1AA1E59C0A100F8DDC3 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1A91E59C0A100F8DDC3 /* JSONValue.swift */; };
+		73FDD1AD1E59C49A00F8DDC3 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1AC1E59C49A00F8DDC3 /* Dictionary.swift */; };
+		73FDD1AF1E59C56400F8DDC3 /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1AE1E59C56400F8DDC3 /* JSONError.swift */; };
+		73FDD1B11E59C58200F8DDC3 /* JSONValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1B01E59C58200F8DDC3 /* JSONValueType.swift */; };
+		73FDD1B31E59D18000F8DDC3 /* JSONValueGetters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1B21E59D18000F8DDC3 /* JSONValueGetters.swift */; };
+		73FDD1B81E59D2D000F8DDC3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FDD1B71E59D2D000F8DDC3 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,6 @@
 		730FAC8D1E3D1E75002DE48C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarsaroundTests.swift; sourceTree = "<group>"; };
-		730FAC9B1E3D1F28002DE48C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		734625DC1E3D26DA00466527 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Screens/Map/MapViewController.swift; sourceTree = "<group>"; };
 		734625DE1E3D271200466527 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = Screens/Map/MapView.swift; sourceTree = "<group>"; };
 		734625E11E3D281400466527 /* Base-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Base-Common.xcconfig"; path = "Configuration/Base-Common.xcconfig"; sourceTree = "<group>"; };
@@ -54,8 +60,16 @@
 		734625F71E3D3B0100466527 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
 		734626541E3D49A100466527 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceAnnotation.swift; path = Screens/PlaceAnnotation/PlaceAnnotation.swift; sourceTree = "<group>"; };
 		734626571E3D4BFB00466527 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = Views/Annotation/Annotation.swift; sourceTree = "<group>"; };
-		734626601E3DE2F500466527 /* MapFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFlowController.swift; sourceTree = "<group>"; };
 		734626631E3DE31F00466527 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowController.swift; path = Screens/Abstract/FlowController.swift; sourceTree = "<group>"; };
+		73FDD19D1E59BF4600F8DDC3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		73FDD1A21E59BF8100F8DDC3 /* MapFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFlowController.swift; sourceTree = "<group>"; };
+		73FDD1A61E59BFB900F8DDC3 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		73FDD1A91E59C0A100F8DDC3 /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
+		73FDD1AC1E59C49A00F8DDC3 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		73FDD1AE1E59C56400F8DDC3 /* JSONError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
+		73FDD1B01E59C58200F8DDC3 /* JSONValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueType.swift; sourceTree = "<group>"; };
+		73FDD1B21E59D18000F8DDC3 /* JSONValueGetters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueGetters.swift; sourceTree = "<group>"; };
+		73FDD1B71E59D2D000F8DDC3 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +156,15 @@
 		730FAC931E3D1EBC002DE48C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				734625D71E3D264E00466527 /* Core */,
-				734625F61E3D3AE900466527 /* Models */,
+				73FDD1B51E59D2C500F8DDC3 /* Network */,
+				73FDD1AB1E59C48300F8DDC3 /* Extensions */,
+				73FDD1A81E59C08800F8DDC3 /* JSON */,
+				73FDD19C1E59BF4600F8DDC3 /* AppFlow */,
+				73FDD1A11E59BF8100F8DDC3 /* Flow Controllers */,
 				734625F31E3D3A2C00466527 /* Helpers */,
-				734625ED1E3D301200466527 /* Views */,
+				734625F61E3D3AE900466527 /* Models */,
 				734625D81E3D267700466527 /* Screens */,
+				734625ED1E3D301200466527 /* Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -159,19 +177,10 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		734625D71E3D264E00466527 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				730FAC9B1E3D1F28002DE48C /* AppDelegate.swift */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
 		734625D81E3D267700466527 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				734626621E3DE30700466527 /* Abstract */,
-				7346265F1E3DE2DB00466527 /* FlowControllers */,
 				734626531E3D498500466527 /* PlaceAnnotation */,
 				734625DB1E3D26AD00466527 /* Map */,
 			);
@@ -257,20 +266,64 @@
 			name = Annotation;
 			sourceTree = "<group>";
 		};
-		7346265F1E3DE2DB00466527 /* FlowControllers */ = {
-			isa = PBXGroup;
-			children = (
-				734626601E3DE2F500466527 /* MapFlowController.swift */,
-			);
-			name = FlowControllers;
-			sourceTree = "<group>";
-		};
 		734626621E3DE30700466527 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
 				734626631E3DE31F00466527 /* FlowController.swift */,
 			);
 			name = Abstract;
+			sourceTree = "<group>";
+		};
+		73FDD19C1E59BF4600F8DDC3 /* AppFlow */ = {
+			isa = PBXGroup;
+			children = (
+				73FDD19D1E59BF4600F8DDC3 /* AppDelegate.swift */,
+				73FDD1A61E59BFB900F8DDC3 /* AppController.swift */,
+			);
+			path = AppFlow;
+			sourceTree = "<group>";
+		};
+		73FDD1A11E59BF8100F8DDC3 /* Flow Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				73FDD1A21E59BF8100F8DDC3 /* MapFlowController.swift */,
+			);
+			path = "Flow Controllers";
+			sourceTree = "<group>";
+		};
+		73FDD1A81E59C08800F8DDC3 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				73FDD1A91E59C0A100F8DDC3 /* JSONValue.swift */,
+				73FDD1AE1E59C56400F8DDC3 /* JSONError.swift */,
+				73FDD1B01E59C58200F8DDC3 /* JSONValueType.swift */,
+				73FDD1B21E59D18000F8DDC3 /* JSONValueGetters.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		73FDD1AB1E59C48300F8DDC3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				73FDD1AC1E59C49A00F8DDC3 /* Dictionary.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73FDD1B51E59D2C500F8DDC3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				73FDD1B61E59D2C500F8DDC3 /* Service */,
+				73FDD1B71E59D2D000F8DDC3 /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		73FDD1B61E59D2C500F8DDC3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +434,8 @@
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/PureLayout.framework",
 				"$(_CARTHAGE_BUILD_PATH)/HDAugmentedReality.framework",
+				"$(_CARTHAGE_BUILD_PATH)/RxSwift.framework",
+				"$(_CARTHAGE_BUILD_PATH)/RxCocoa.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -397,14 +452,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */,
+				73FDD1B81E59D2D000F8DDC3 /* APIClient.swift in Sources */,
 				734625F51E3D3A4500466527 /* PlacesProvider.swift in Sources */,
-				730FAC9C1E3D1F28002DE48C /* AppDelegate.swift in Sources */,
 				734626641E3DE31F00466527 /* FlowController.swift in Sources */,
+				73FDD1AD1E59C49A00F8DDC3 /* Dictionary.swift in Sources */,
 				734625F81E3D3B0100466527 /* Place.swift in Sources */,
-				734626611E3DE2F500466527 /* MapFlowController.swift in Sources */,
+				73FDD1A31E59BF8100F8DDC3 /* MapFlowController.swift in Sources */,
+				73FDD1B31E59D18000F8DDC3 /* JSONValueGetters.swift in Sources */,
+				73FDD1A71E59BFB900F8DDC3 /* AppController.swift in Sources */,
 				734625DF1E3D271200466527 /* MapView.swift in Sources */,
+				73FDD1AF1E59C56400F8DDC3 /* JSONError.swift in Sources */,
 				734625F21E3D306800466527 /* BaseView.swift in Sources */,
 				734626581E3D4BFB00466527 /* Annotation.swift in Sources */,
+				73FDD1AA1E59C0A100F8DDC3 /* JSONValue.swift in Sources */,
+				73FDD1B11E59C58200F8DDC3 /* JSONValueType.swift in Sources */,
+				73FDD19E1E59BF4600F8DDC3 /* AppDelegate.swift in Sources */,
 				734626551E3D49A100466527 /* PlaceAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
