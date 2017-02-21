@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
+internal extension Dictionary {
 
     /// Flat maps over keys and values of Dictionary returning new, transformed Dictionary
     ///
@@ -22,5 +22,4 @@ extension Dictionary {
         try flatMap { try transform($0, $1) }.forEach { memo[$0.0] = $0.1 }
         return memo
     }
-
 }

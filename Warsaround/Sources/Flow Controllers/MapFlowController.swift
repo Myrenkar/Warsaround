@@ -9,6 +9,7 @@
 import Foundation
 import HDAugmentedReality
 import MapKit
+import RxSwift
 import UIKit
 
 internal class MapFlowController: NSObject, FlowController {
@@ -20,12 +21,16 @@ internal class MapFlowController: NSObject, FlowController {
     fileprivate var places = [Place]()
     fileprivate let locationManager = CLLocationManager()
     fileprivate var startedLoadingPOIs = false
+    fileprivate let apiClient: APIClient
+    let placesProvider: PlacesProvider
+    let disposeBag = DisposeBag()
 
     /// Initializes top up flow controller
-    override init() {
+    init(apiClient: APIClient) {
         let navigationController = UINavigationController()
         rootViewController = navigationController
-
+        self.apiClient = apiClient
+        self.placesProvider = PlacesProvider(apiClient: apiClient)
         super.init()
         configure(withManager: self.locationManager)
         navigationController.setViewControllers([mapViewController], animated: false)
@@ -75,28 +80,37 @@ extension MapFlowController: CLLocationManagerDelegate {
 
             if !startedLoadingPOIs {
                 startedLoadingPOIs = true
-                let loader = PlacesProvider()
+                placesProvider
+                    .loadPOIS(location: location)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe({ places in
+                        print(places)
+                    })
+                    .addDisposableTo(disposeBag)
+//                    .subscribe(onNext: { element in
+//                        print(element)
+//                    }).addDisposableTo(disposeBag)
 
-                loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
-                    if let dict = placesDict {
-                        guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
-                        for placeDict in placesArray {
-                            let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
-                            let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
-                            let reference = placeDict.object(forKey: "reference") as! String
-                            let name = placeDict.object(forKey: "name") as! String
-                            let address = placeDict.object(forKey: "vicinity") as! String
-
-                            let location = CLLocation(latitude: latitude, longitude: longitude)
-                            let place = Place(location: location, reference: reference, name: name, address: address)
-                            self.places.append(place)
-                            let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
-                            DispatchQueue.main.async {
-                                self.mapViewController.mapView.mapView.addAnnotation(annotation)
-                            }
-                        }
-                    }
-                }
+//                loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
+//                    if let dict = placesDict {
+//                        guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
+//                        for placeDict in placesArray {
+//                            let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
+//                            let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
+//                            let reference = placeDict.object(forKey: "reference") as! String
+//                            let name = placeDict.object(forKey: "name") as! String
+//                            let address = placeDict.object(forKey: "vicinity") as! String
+//
+//                            let location = CLLocation(latitude: latitude, longitude: longitude)
+//                            let place = Place(location: location, reference: reference, name: name, address: address)
+//                            self.places.append(place)
+//                            let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
+//                            DispatchQueue.main.async {
+//                                self.mapViewController.mapView.mapView.addAnnotation(annotation)
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
         
@@ -116,16 +130,16 @@ extension MapFlowController: ARDataSource {
 
 extension MapFlowController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
-        if let annotation = annotationView.annotation as? Place {
-            let placesLoader = PlacesProvider()
-            placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
-                if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
-                    annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
-                    annotation.website = infoDict.object(forKey: "website") as? String
-                    self.showInfoView(forPlace: annotation)
-                }
-            }
-        }
+//        if let annotation = annotationView.annotation as? Place {
+//            let placesLoader = PlacesProvider(apiClient: apiClient)
+////            placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+//                if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
+//                    annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
+//                    annotation.website = infoDict.object(forKey: "website") as? String
+//                    self.showInfoView(forPlace: annotation)
+//                }
+//            }
+//        }
     }
 
     func showInfoView(forPlace place: Place) {

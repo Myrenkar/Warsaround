@@ -22,13 +22,16 @@ extension URLRequest {
         guard let url =  URLComponents(request: request).url else {
             throw APIRequestError.IncorrectURL(url: request.path)
         }
-        self.init(url: url)
+
+        let stringURL = String(describing: url).removingPercentEncoding
+        let newUrl = URL(string: stringURL!)
+
+        self.init(url: newUrl!)
 
         httpMethod = request.method.rawValue
 
         // Default headers
         allHTTPHeaderFields = [
-            "Accept": "application/json",
             "Content-Type": "application/json; charset=utf-8",
         ]
 

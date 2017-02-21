@@ -27,7 +27,6 @@ internal final class DefaultAPIClient: APIClient {
             do {
                 let urlRequest = try URLRequest(request: request)
 
-
                 let task = self.session.dataTask(with: urlRequest) { data, response, error in
                     if let error = error {
                         observer.onError(error)
@@ -40,7 +39,6 @@ internal final class DefaultAPIClient: APIClient {
                                 APIClientError.ResponseError(error: .UnexpectedStatusCode(statusCode: response.statusCode))
                             )
                         }
-
                     } else {
                         observer.onError(APIClientError.NoResponse)
                     }

@@ -16,6 +16,7 @@ class Place: ARAnnotation {
     let address: String
     var phoneNumber: String?
     var website: String?
+    var icon: String?
 
     var infoText: String {
         get {
@@ -41,8 +42,21 @@ class Place: ARAnnotation {
         
         self.location = location
     }
+
+    init(json: JSONValue) throws {
+        placeName = try json.get("name").string()
+        address = try json.get("vicinity").string()
+        reference = try json.get("reference").string()
+        icon = try json.get("icon").string()
+        super.init()
+
+        let lat = try json.get("geometry.location.lat").number() as CLLocationDegrees
+        let long = try json.get("geometry.location.lon").number() as CLLocationDegrees
+        location = CLLocation(latitude: lat, longitude: long)
+    }
     
     override var description: String {
         return placeName
     }
 }
+

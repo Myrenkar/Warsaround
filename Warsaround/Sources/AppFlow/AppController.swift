@@ -10,7 +10,12 @@ import UIKit
 
 final class AppController {
 
-    let rootFlowController = MapFlowController()
+    let apiClient: APIClient
+    let rootFlowController: MapFlowController
+    init() {
+        apiClient = DefaultAPIClient()
+        rootFlowController = MapFlowController(apiClient: apiClient)
+    }
 
     func presentRootController(inWindow window: UIWindow) {
         set(window: window, withRootController: rootFlowController.rootViewController)
