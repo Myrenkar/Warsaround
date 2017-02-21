@@ -21,7 +21,7 @@ internal struct Viewport {
 extension Viewport: JSONValueDeserializable {
 
     init(deserializingFromJSONValue json: JSONValue) throws {
-        northEast = try json.get("northeast").serializeToAnyObject() as! NorthEast
-        southWest = try json.get("southwest").serializeToAnyObject() as! SouthWest
+        northEast = try NorthEast(deserializingFromJSONValue: json.get("northeast"))
+        southWest = try SouthWest(deserializingFromJSONValue: json.get("southwest"))
     }
 }

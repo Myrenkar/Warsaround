@@ -29,14 +29,13 @@ internal struct PlacesProvider {
 
         return apiClient
             .send(request: placesRequest)
-            .flatMap { response -> Observable<[JSONValue]> in
+            .flatMap { response -> Observable<[Place]> in
                 guard let data = response.data else { throw APIResponseError.MissingData }
-                let jsonArray = try JSONValue(data: data).array()
-                return Observable.just(jsonArray)
-            }
-            .flatMap { jsonArray -> Observable<[Place]> in
-                let array = try jsonArray.map { try Place(json: $0) }
-                return Observable.just(array)
+                let json = try JSONValue(data: data).dictionary()
+                let jsonArray = try json["results"]!.array()
+
+                let placesArray = try jsonArray.map { try Place(json: $0) }
+                return Observable.just(placesArray)
             }
     }
 

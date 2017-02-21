@@ -15,7 +15,6 @@
 		733068E31E5CB52100C343B5 /* Viewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E21E5CB52100C343B5 /* Viewport.swift */; };
 		733068E61E5CD70700C343B5 /* JSONValueDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E51E5CD70700C343B5 /* JSONValueDeserializable.swift */; };
 		733068E81E5CD7C700C343B5 /* JSONValueSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E71E5CD7C700C343B5 /* JSONValueSerializable.swift */; };
-		733068EA1E5CD99800C343B5 /* JSONSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E91E5CD99800C343B5 /* JSONSerializableDictionary.swift */; };
 		734625DF1E3D271200466527 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DE1E3D271200466527 /* MapView.swift */; };
 		734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DC1E3D26DA00466527 /* MapViewController.swift */; };
 		734625F21E3D306800466527 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F11E3D306800466527 /* BaseView.swift */; };
@@ -68,7 +67,6 @@
 		733068E21E5CB52100C343B5 /* Viewport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Viewport.swift; path = Models/Viewport.swift; sourceTree = "<group>"; };
 		733068E51E5CD70700C343B5 /* JSONValueDeserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueDeserializable.swift; sourceTree = "<group>"; };
 		733068E71E5CD7C700C343B5 /* JSONValueSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueSerializable.swift; sourceTree = "<group>"; };
-		733068E91E5CD99800C343B5 /* JSONSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializableDictionary.swift; sourceTree = "<group>"; };
 		734625DC1E3D26DA00466527 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Screens/Map/MapViewController.swift; sourceTree = "<group>"; };
 		734625DE1E3D271200466527 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = Screens/Map/MapView.swift; sourceTree = "<group>"; };
 		734625E11E3D281400466527 /* Base-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Base-Common.xcconfig"; path = "Configuration/Base-Common.xcconfig"; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			children = (
 				733068E51E5CD70700C343B5 /* JSONValueDeserializable.swift */,
 				733068E71E5CD7C700C343B5 /* JSONValueSerializable.swift */,
-				733068E91E5CD99800C343B5 /* JSONSerializableDictionary.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -544,7 +541,6 @@
 				73FDD1D31E5A100E00F8DDC3 /* URLComponents.swift in Sources */,
 				733068E61E5CD70700C343B5 /* JSONValueDeserializable.swift in Sources */,
 				734625DF1E3D271200466527 /* MapView.swift in Sources */,
-				733068EA1E5CD99800C343B5 /* JSONSerializableDictionary.swift in Sources */,
 				73FDD1AF1E59C56400F8DDC3 /* JSONError.swift in Sources */,
 				73FDD1D81E5A140000F8DDC3 /* DevelopmentAPIServiec.swift in Sources */,
 				733068E31E5CB52100C343B5 /* Viewport.swift in Sources */,

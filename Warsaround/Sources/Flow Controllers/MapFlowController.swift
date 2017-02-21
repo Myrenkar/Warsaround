@@ -35,12 +35,28 @@ internal class MapFlowController: NSObject, FlowController {
         configure(withManager: self.locationManager)
         navigationController.setViewControllers([mapViewController], animated: false)
     }
+}
 
-    private func configure(withManager manager: CLLocationManager) {
+extension MapFlowController {
+    fileprivate func configure(withManager manager: CLLocationManager) {
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         manager.startUpdatingLocation()
         manager.requestWhenInUseAuthorization()
+    }
+
+    fileprivate func setupMapView(withPlaces placesToLook: [Place]?) {
+        guard let placesToLook = placesToLook else { return }
+        for place in placesToLook {
+            guard let location = place.geometry?.location else {
+                return
+            }
+            places.append(place)
+            let annotataion = PlaceAnnotation(location: location, title: place.description)
+            DispatchQueue.main.async {
+                self.mapViewController.mapView.mapView.addAnnotation(annotataion)
+            }
+        }
     }
 }
 
@@ -83,34 +99,10 @@ extension MapFlowController: CLLocationManagerDelegate {
                 placesProvider
                     .loadPOIS(location: location)
                     .observeOn(MainScheduler.instance)
-                    .subscribe({ places in
-                        print(places)
+                    .subscribe({ [unowned self] placesArray in
+                        self.setupMapView(withPlaces: placesArray.element)
                     })
                     .addDisposableTo(disposeBag)
-//                    .subscribe(onNext: { element in
-//                        print(element)
-//                    }).addDisposableTo(disposeBag)
-
-//                loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
-//                    if let dict = placesDict {
-//                        guard let placesArray = dict.object(forKey: "results") as? [NSDictionary]  else { return }
-//                        for placeDict in placesArray {
-//                            let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
-//                            let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
-//                            let reference = placeDict.object(forKey: "reference") as! String
-//                            let name = placeDict.object(forKey: "name") as! String
-//                            let address = placeDict.object(forKey: "vicinity") as! String
-//
-//                            let location = CLLocation(latitude: latitude, longitude: longitude)
-//                            let place = Place(location: location, reference: reference, name: name, address: address)
-//                            self.places.append(place)
-//                            let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
-//                            DispatchQueue.main.async {
-//                                self.mapViewController.mapView.mapView.addAnnotation(annotation)
-//                            }
-//                        }
-//                    }
-//                }
             }
         }
         
@@ -132,7 +124,7 @@ extension MapFlowController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
 //        if let annotation = annotationView.annotation as? Place {
 //            let placesLoader = PlacesProvider(apiClient: apiClient)
-////            placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+//            placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
 //                if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
 //                    annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
 //                    annotation.website = infoDict.object(forKey: "website") as? String

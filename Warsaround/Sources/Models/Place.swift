@@ -10,13 +10,16 @@ import Foundation
 import CoreLocation
 import HDAugmentedReality
 
-class Place: ARAnnotation {
+internal class Place: ARAnnotation {
     let reference: String
     let placeName: String
     let address: String
+
     var phoneNumber: String?
     var website: String?
     var icon: String?
+    var geometry: Geometry?
+
 
     var infoText: String {
         get {
@@ -39,7 +42,7 @@ class Place: ARAnnotation {
         self.address = address
 
         super.init()
-        
+
         self.location = location
     }
 
@@ -48,13 +51,13 @@ class Place: ARAnnotation {
         address = try json.get("vicinity").string()
         reference = try json.get("reference").string()
         icon = try json.get("icon").string()
+
+        geometry = try Geometry(deserializingFromJSONValue: json.get("geometry"))
         super.init()
 
-        let lat = try json.get("geometry.location.lat").number() as CLLocationDegrees
-        let long = try json.get("geometry.location.lon").number() as CLLocationDegrees
-        location = CLLocation(latitude: lat, longitude: long)
+        self.location = CLLocation(latitude: geometry!.location.latitude, longitude: geometry!.location.longitude)
     }
-    
+
     override var description: String {
         return placeName
     }
