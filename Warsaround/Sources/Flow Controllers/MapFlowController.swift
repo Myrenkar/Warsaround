@@ -122,16 +122,17 @@ extension MapFlowController: ARDataSource {
 
 extension MapFlowController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
-//        if let annotation = annotationView.annotation as? Place {
-//            let placesLoader = PlacesProvider(apiClient: apiClient)
-//            placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
-//                if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
-//                    annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
-//                    annotation.website = infoDict.object(forKey: "website") as? String
-//                    self.showInfoView(forPlace: annotation)
-//                }
-//            }
-//        }
+        if let annotation = annotationView.annotation as? Place {
+            placesProvider
+                .loadDetailInformation(forPlace: annotation)
+                .observeOn(MainScheduler.instance)
+                .subscribe({[unowned self] place in
+                    annotation.phoneNumber = place.element?.phoneNumber
+                    annotation.website = place.element?.website
+                    self.showInfoView(forPlace: annotation)
+                })
+                .addDisposableTo(disposeBag)
+        }
     }
 
     func showInfoView(forPlace place: Place) {

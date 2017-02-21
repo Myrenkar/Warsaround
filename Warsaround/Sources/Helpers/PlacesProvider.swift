@@ -21,7 +21,6 @@ internal struct PlacesProvider {
     }
 
     func loadPOIS(location: CLLocation, radius: Int = 30) -> Observable<[Place]> {
-        print("Load pois")
         let lattitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
 
@@ -39,35 +38,19 @@ internal struct PlacesProvider {
             }
     }
 
-//    func loadDetailInformation(forPlace: Place, handler: @escaping (NSDictionary?, NSError?) -> Void) {
-//
-//        let uri = apiURL + "details/json?reference=\(forPlace.reference)&sensor=true&key=\(apiKey)"
-//
-//        let url = URL(string: uri)!
-//        let session = URLSession(configuration: URLSessionConfiguration.default)
-//        let dataTask = session.dataTask(with: url) { data, response, error in
-//            if let error = error {
-//                print(error)
-//            } else if let httpResponse = response as? HTTPURLResponse {
-//                if httpResponse.statusCode == 200 {
-//                    print(data!)
-//
-//                    do {
-//                        let responseObject = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-//                        guard let responseDict = responseObject as? NSDictionary else {
-//                            return
-//                        }
-//                        
-//                        handler(responseDict, nil)
-//                        
-//                    } catch let error as NSError {
-//                        handler(nil, error)
-//                    }
-//                }
-//            }
-//        }
-//        
-//        dataTask.resume()
-//    }
+    func loadDetailInformation(forPlace place: Place) -> Observable<PlaceDetails> {
+
+        let placesDetailsRequest = PlaceDetailsRequest(withPlace: place)
+
+        return apiClient
+            .send(request: placesDetailsRequest)
+            .flatMap { response -> Observable<PlaceDetails> in
+                guard let data = response.data else { throw APIResponseError.MissingData }
+                let json = try JSONValue(data: data).dictionary()
+
+                let place = try PlaceDetails(deserializingFromJSONValue: json["results"]!)
+                return Observable.just(place)
+            }
+    }
 
 }
