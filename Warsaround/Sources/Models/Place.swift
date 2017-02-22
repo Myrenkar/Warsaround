@@ -51,15 +51,15 @@ internal class Place: ARAnnotation {
         address = try json.get("vicinity").string()
         reference = try json.get("reference").string()
         icon = try json.get("icon").string()
-
         geometry = try Geometry(deserializingFromJSONValue: json.get("geometry"))
+
         super.init()
 
-        self.location = CLLocation(latitude: geometry!.location.latitude, longitude: geometry!.location.longitude)
+        guard let geometry = geometry else { return }
+        self.location = CLLocation(latitude: geometry.location.latitude, longitude: geometry.location.longitude)
     }
 
     override var description: String {
         return placeName
     }
 }
-

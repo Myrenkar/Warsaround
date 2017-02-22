@@ -20,15 +20,14 @@ final class MapView: BaseView {
     }
 
     override func setupConstraints() {
-        mapView.autoPinEdgesToSuperviewEdges()
-        functionButton.autoSetDimensions(to: CGSize(width: 64, height: 32))
-        functionButton.autoPinEdge(.right, to: .right, of: mapView, withOffset: -16)
-        functionButton.autoPinEdge(.bottom, to: .bottom, of: mapView, withOffset: -16)
+        let viewLayout = MapViewViewLayout()
+        viewLayout.apply(view: self)
     }
 
     override func setupProperties() {
-        functionButton.setTitle("Change", for: .normal)
-        functionButton.setTitleColor(.red, for: .normal)
+        let decorator = MapViewDecorator()
+        decorator.decorate(withView: self)
+
         mapView.showsUserLocation = true
     }
 }

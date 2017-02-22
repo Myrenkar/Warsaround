@@ -77,6 +77,7 @@ extension MapFlowController {
         controller.dataSource = self
         controller.maxVisibleAnnotations = 30
         controller.headingSmoothingFactor = 0.05
+        controller.definesPresentationContext = true
         controller.setAnnotations(places)
         return controller
     }
@@ -138,6 +139,6 @@ extension MapFlowController: AnnotationViewDelegate {
     func showInfoView(forPlace place: Place) {
         let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.augmentedRealityViewController.present(alert, animated: true, completion: nil)
+        self.mapViewController.present(alert, animated: true, completion: nil)
     }
 }

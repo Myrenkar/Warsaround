@@ -14,8 +14,8 @@ internal struct Location {
 }
 
 extension Location: JSONValueDeserializable {
-    init(deserializingFromJSONValue json: JSONValue) throws {
-        long = try json.get("lng").number().doubleValue
-        lat = try json.get("lat").number().doubleValue
+    init(deserializingFromJSONValue value: JSONValue) throws {
+        long = try value.get("lng").number().doubleValue
+        lat = try value.get("lat").number().doubleValue
     }
 }
