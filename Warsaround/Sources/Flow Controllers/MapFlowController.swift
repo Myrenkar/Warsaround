@@ -91,9 +91,6 @@ extension MapFlowController: CLLocationManagerDelegate {
 
         if location.horizontalAccuracy < 100 {
             manager.stopUpdatingLocation()
-            let span = MKCoordinateSpan(latitudeDelta: 0.014, longitudeDelta: 0.014)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            mapViewController.mapView.mapView.region = region
 
             if !startedLoadingPOIs {
                 startedLoadingPOIs = true
@@ -113,9 +110,12 @@ extension MapFlowController: CLLocationManagerDelegate {
 extension MapFlowController: ARDataSource {
     func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
         let annotationView = AnnotationView()
-        annotationView.annotation = viewForAnnotation
-        annotationView.delegate = self
-        annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        
+        if let placeAnnotation =  viewForAnnotation as? Place {
+            annotationView.annotation = placeAnnotation
+            annotationView.delegate = self
+            annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        }
 
         return annotationView
     }

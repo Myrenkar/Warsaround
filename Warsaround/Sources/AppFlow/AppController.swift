@@ -12,6 +12,7 @@ final class AppController {
 
     let apiClient: APIClient
     let rootFlowController: MapFlowController
+
     init() {
         apiClient = DefaultAPIClient()
         rootFlowController = MapFlowController(apiClient: apiClient)

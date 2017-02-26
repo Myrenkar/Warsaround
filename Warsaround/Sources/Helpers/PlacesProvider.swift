@@ -14,12 +14,22 @@ import RxSwift
 internal struct PlacesProvider {
 
     let apiClient: APIClient
-    let placesArray = Variable<[Place]>([])
 
+
+    /// Initializes the instance
+    ///
+    /// - Parameter apiClient: API client to be used
     init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
 
+
+    /// Load POIs from remote service
+    ///
+    /// - Parameters:
+    ///   - location: current user location
+    ///   - radius: radius in metres for checking POIs
+    /// - Returns: Observavle with array of places
     func loadPOIS(location: CLLocation, radius: Int = 30) -> Observable<[Place]> {
         let lattitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
@@ -32,9 +42,8 @@ internal struct PlacesProvider {
                 guard let data = response.data else { throw APIResponseError.MissingData }
                 let json = try JSONValue(data: data).dictionary()
                 let jsonArray = try json["results"]!.array()
-
-                let placesArray = try jsonArray.map { try Place(json: $0) }
-                return Observable.just(placesArray)
+                let places = try jsonArray.map { try Place(json: $0) }
+                return Observable.from(places)
             }
     }
 
@@ -47,9 +56,8 @@ internal struct PlacesProvider {
             .flatMap { response -> Observable<PlaceDetails> in
                 guard let data = response.data else { throw APIResponseError.MissingData }
                 let json = try JSONValue(data: data).dictionary()
-
                 let place = try PlaceDetails(deserializingFromJSONValue: json["results"]!)
-                return Observable.just(place)
+                return Observable.from(place)
             }
     }
 

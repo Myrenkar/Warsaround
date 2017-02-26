@@ -19,7 +19,7 @@ internal class Place: ARAnnotation {
     var website: String?
     var icon: String?
     var geometry: Geometry?
-
+    var placeDetails: PlaceDetails?
 
     var infoText: String {
         get {

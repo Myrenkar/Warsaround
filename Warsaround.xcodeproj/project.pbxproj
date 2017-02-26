@@ -10,6 +10,7 @@
 		730FAC8E1E3D1E75002DE48C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC8A1E3D1E75002DE48C /* Assets.xcassets */; };
 		730FAC921E3D1E8C002DE48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */; };
 		730FAC9D1E3D1FA8002DE48C /* WarsaroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */; };
+		731576D81E634C8B0028FBD6 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731576D71E634C8B0028FBD6 /* MapViewModel.swift */; };
 		733068DF1E5CB3D200C343B5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068DE1E5CB3D200C343B5 /* Geometry.swift */; };
 		733068E11E5CB41C00C343B5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E01E5CB41C00C343B5 /* Location.swift */; };
 		733068E31E5CB52100C343B5 /* Viewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E21E5CB52100C343B5 /* Viewport.swift */; };
@@ -23,6 +24,7 @@
 		733068F81E5D722800C343B5 /* Decorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068F71E5D722800C343B5 /* Decorator.swift */; };
 		733068FC1E5D731E00C343B5 /* MapViewViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068FB1E5D731E00C343B5 /* MapViewViewLayout.swift */; };
 		733068FE1E5D745E00C343B5 /* MapViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068FD1E5D745E00C343B5 /* MapViewDecorator.swift */; };
+		733069001E5DBC2000C343B5 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068FF1E5DBC2000C343B5 /* UIStackView.swift */; };
 		734625DF1E3D271200466527 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DE1E3D271200466527 /* MapView.swift */; };
 		734625E91E3D2DDA00466527 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625DC1E3D26DA00466527 /* MapViewController.swift */; };
 		734625F21E3D306800466527 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734625F11E3D306800466527 /* BaseView.swift */; };
@@ -67,6 +69,7 @@
 		730FAC8D1E3D1E75002DE48C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarsaroundTests.swift; sourceTree = "<group>"; };
+		731576D71E634C8B0028FBD6 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewModel.swift; path = Screens/Map/MapViewModel.swift; sourceTree = "<group>"; };
 		733068DE1E5CB3D200C343B5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Models/Geometry.swift; sourceTree = "<group>"; };
 		733068E01E5CB41C00C343B5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Models/Location.swift; sourceTree = "<group>"; };
 		733068E21E5CB52100C343B5 /* Viewport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Viewport.swift; path = Models/Viewport.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		733068F71E5D722800C343B5 /* Decorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decorator.swift; sourceTree = "<group>"; };
 		733068FB1E5D731E00C343B5 /* MapViewViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewLayout.swift; sourceTree = "<group>"; };
 		733068FD1E5D745E00C343B5 /* MapViewDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDecorator.swift; sourceTree = "<group>"; };
+		733068FF1E5DBC2000C343B5 /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		734625DC1E3D26DA00466527 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Screens/Map/MapViewController.swift; sourceTree = "<group>"; };
 		734625DE1E3D271200466527 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = Screens/Map/MapView.swift; sourceTree = "<group>"; };
 		734625E11E3D281400466527 /* Base-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Base-Common.xcconfig"; path = "Configuration/Base-Common.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 			children = (
 				734625DC1E3D26DA00466527 /* MapViewController.swift */,
 				734625DE1E3D271200466527 /* MapView.swift */,
+				731576D71E634C8B0028FBD6 /* MapViewModel.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				733068F51E5D720B00C343B5 /* Dictionary.swift */,
+				733068FF1E5DBC2000C343B5 /* UIStackView.swift */,
 				73FDD1D21E5A100E00F8DDC3 /* URLComponents.swift */,
 				73FDD1D01E59D87800F8DDC3 /* URLRequest.swift */,
 			);
@@ -533,6 +539,7 @@
 				"$(_CARTHAGE_BUILD_PATH)/HDAugmentedReality.framework",
 				"$(_CARTHAGE_BUILD_PATH)/RxSwift.framework",
 				"$(_CARTHAGE_BUILD_PATH)/RxCocoa.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Kingfisher.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -579,12 +586,14 @@
 				734626581E3D4BFB00466527 /* Annotation.swift in Sources */,
 				733068E11E5CB41C00C343B5 /* Location.swift in Sources */,
 				73FDD1CF1E59D73600F8DDC3 /* DefaultAPIClient.swift in Sources */,
+				731576D81E634C8B0028FBD6 /* MapViewModel.swift in Sources */,
 				73FDD1DA1E5A14F800F8DDC3 /* APIDefaultRequest.swift in Sources */,
 				73FDD1AA1E59C0A100F8DDC3 /* JSONValue.swift in Sources */,
 				73FDD1B11E59C58200F8DDC3 /* JSONValueType.swift in Sources */,
 				733068F41E5D719D00C343B5 /* ViewLayout.swift in Sources */,
 				73FDD19E1E59BF4600F8DDC3 /* AppDelegate.swift in Sources */,
 				734626551E3D49A100466527 /* PlaceAnnotation.swift in Sources */,
+				733069001E5DBC2000C343B5 /* UIStackView.swift in Sources */,
 				73FDD1C91E59D72700F8DDC3 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
