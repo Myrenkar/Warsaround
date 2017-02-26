@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7304E6381E636F5900284359 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7304E6371E636F5900284359 /* MapKit.framework */; };
 		730FAC8E1E3D1E75002DE48C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC8A1E3D1E75002DE48C /* Assets.xcassets */; };
 		730FAC921E3D1E8C002DE48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */; };
 		730FAC9D1E3D1FA8002DE48C /* WarsaroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7304E6371E636F5900284359 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		730FAC651E3D1D1A002DE48C /* Warsaround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warsaround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		730FAC791E3D1D1A002DE48C /* WarsaroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WarsaroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		730FAC8A1E3D1E75002DE48C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7304E6381E636F5900284359 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,11 +139,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7304E6361E636F5900284359 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7304E6371E636F5900284359 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		730FAC5C1E3D1D19002DE48C = {
 			isa = PBXGroup;
 			children = (
 				730FAC671E3D1D1A002DE48C /* Warsaround */,
 				730FAC661E3D1D1A002DE48C /* Products */,
+				7304E6361E636F5900284359 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -482,6 +494,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = Q74286BTD6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					730FAC781E3D1D1A002DE48C = {
 						CreatedOnToolsVersion = 8.2;
