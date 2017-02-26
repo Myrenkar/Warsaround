@@ -28,11 +28,6 @@ internal final class MapViewController: UIViewController {
         self.addKeyAction(button: mapView.functionButton)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        zoom(toCurrentLocation: mapView.mapView.userLocation.coordinate)
-    }
-
     private func addKeyAction(button: UIButton) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapChangeButton))
         button.addGestureRecognizer(tapGestureRecognizer)
@@ -40,9 +35,5 @@ internal final class MapViewController: UIViewController {
 
     dynamic func didTapChangeButton() {
         onButtonPressed?()
-    }
-
-    func zoom(toCurrentLocation location: CLLocationCoordinate2D) {
-       mapView.mapView.setRegion(MKCoordinateRegionMake(location, MKCoordinateSpanMake(0.1, 0.1)), animated: true)
     }
 }

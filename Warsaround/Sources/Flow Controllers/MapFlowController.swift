@@ -22,22 +22,45 @@ internal class MapFlowController: NSObject, FlowController {
     fileprivate let locationManager = CLLocationManager()
     fileprivate var startedLoadingPOIs = false
     fileprivate let apiClient: APIClient
+    fileprivate let mapViewController: MapViewController
+    fileprivate let augmentedRealityViewController: ARViewController
+
     let placesProvider: PlacesProvider
     let disposeBag = DisposeBag()
 
-    /// Initializes top up flow controller
+    /// Initializes map flow controller
     init(apiClient: APIClient) {
         let navigationController = UINavigationController()
         rootViewController = navigationController
+
         self.apiClient = apiClient
         self.placesProvider = PlacesProvider(apiClient: apiClient)
+        self.augmentedRealityViewController = ARViewController()
+        self.mapViewController = MapViewController()
+
         super.init()
+
+        self.mapViewController.onButtonPressed = {
+            self.augmentedRealityViewController.setAnnotations(self.places)
+            self.rootViewController.present(self.augmentedRealityViewController, animated: true, completion: nil)
+        }
+
+        configure(withARViewController: augmentedRealityViewController)
         configure(withManager: self.locationManager)
+
         navigationController.setViewControllers([mapViewController], animated: false)
     }
 }
 
+//MARK: Configuration methos
 extension MapFlowController {
+    fileprivate func configure(withARViewController controller: ARViewController) {
+        controller.maxVisibleAnnotations = 30
+        controller.headingSmoothingFactor = 0.05
+        controller.definesPresentationContext = true
+        controller.dataSource = self
+    }
+
     fileprivate func configure(withManager manager: CLLocationManager) {
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -48,9 +71,8 @@ extension MapFlowController {
     fileprivate func setupMapView(withPlaces placesToLook: [Place]?) {
         guard let placesToLook = placesToLook else { return }
         for place in placesToLook {
-            guard let location = place.geometry?.location else {
-                return
-            }
+            guard let location = place.geometry?.location else { return }
+
             places.append(place)
             let annotataion = PlaceAnnotation(location: location, title: place.description)
             DispatchQueue.main.async {
@@ -60,29 +82,16 @@ extension MapFlowController {
     }
 }
 
+//MARK: Functionality methos
 extension MapFlowController {
-
-    var mapViewController: MapViewController {
-        let controller = MapViewController()
-
-        controller.onButtonPressed = {
-            self.rootViewController.present(self.augmentedRealityViewController, animated: true, completion: nil)
-        }
-
-        return controller
-    }
-
-    var augmentedRealityViewController: ARViewController {
-        let controller = ARViewController()
-        controller.dataSource = self
-        controller.maxVisibleAnnotations = 30
-        controller.headingSmoothingFactor = 0.05
-        controller.definesPresentationContext = true
-        controller.setAnnotations(places)
-        return controller
+    func showInfoView(forPlace place: Place) {
+        let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.augmentedRealityViewController.present(alert, animated: true, completion: nil)
     }
 }
 
+//MARK: CLLocationManagerDelegate
 extension MapFlowController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -91,7 +100,7 @@ extension MapFlowController: CLLocationManagerDelegate {
 
         if location.horizontalAccuracy < 100 {
             manager.stopUpdatingLocation()
-
+            zoom(toCurrentLocation: location.coordinate)
             if !startedLoadingPOIs {
                 startedLoadingPOIs = true
                 placesProvider
@@ -103,10 +112,14 @@ extension MapFlowController: CLLocationManagerDelegate {
                     .addDisposableTo(disposeBag)
             }
         }
-        
+    }
+
+    fileprivate func zoom(toCurrentLocation location: CLLocationCoordinate2D) {
+        self.mapViewController.mapView.mapView.setRegion(MKCoordinateRegionMake(location, MKCoordinateSpanMake(0.005, 0.005)), animated: true)
     }
 }
 
+//MARK: ARDataSource
 extension MapFlowController: ARDataSource {
     func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
         let annotationView = AnnotationView()
@@ -121,6 +134,7 @@ extension MapFlowController: ARDataSource {
     }
 }
 
+//MARK: AnnotationViewDelegate
 extension MapFlowController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
         if let annotation = annotationView.annotation as? Place {
@@ -134,11 +148,5 @@ extension MapFlowController: AnnotationViewDelegate {
                 })
                 .addDisposableTo(disposeBag)
         }
-    }
-
-    func showInfoView(forPlace place: Place) {
-        let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.mapViewController.present(alert, animated: true, completion: nil)
     }
 }
