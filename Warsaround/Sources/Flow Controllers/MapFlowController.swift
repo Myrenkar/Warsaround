@@ -19,16 +19,18 @@ internal class MapFlowController: NSObject, FlowController {
     var rootViewController: UINavigationController
 
     fileprivate var places = [Place]()
-    fileprivate let locationManager = CLLocationManager()
     fileprivate var startedLoadingPOIs = false
+
+    fileprivate let locationManager = CLLocationManager()
     fileprivate let apiClient: APIClient
     fileprivate let mapViewController: MapViewController
     fileprivate let augmentedRealityViewController: ARViewController
+    fileprivate let placesProvider: PlacesProvider
+    fileprivate let disposeBag = DisposeBag()
 
-    let placesProvider: PlacesProvider
-    let disposeBag = DisposeBag()
-
-    /// Initializes map flow controller
+    /// Initializes MapFlowController
+    ///
+    /// - Parameter apiClient: apiClient to be used.
     init(apiClient: APIClient) {
         let navigationController = UINavigationController()
         rootViewController = navigationController
@@ -93,10 +95,8 @@ extension MapFlowController {
 
 //MARK: CLLocationManagerDelegate
 extension MapFlowController: CLLocationManagerDelegate {
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        print("Accuracy: \(location.horizontalAccuracy)")
 
         if location.horizontalAccuracy < 100 {
             manager.stopUpdatingLocation()

@@ -6,16 +6,12 @@
 //  Copyright © 2017 SmartApps. All rights reserved.
 //
 
-import CoreLocation
-import HDAugmentedReality
-import MapKit
 import UIKit
 
 internal final class MapViewController: UIViewController {
     var onButtonPressed: (() -> Void)?
 
-    var mapView = MapView(frame: .zero)
-    fileprivate let locationManager = CLLocationManager()
+    lazy var mapView = MapView(frame: .zero)
     fileprivate var startedLoadingPOIs = false
     fileprivate var places = [Place]()
 
