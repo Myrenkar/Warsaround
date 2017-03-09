@@ -8,6 +8,7 @@
 
 import Foundation
 import HDAugmentedReality
+import Kingfisher
 import MapKit
 import RxSwift
 import UIKit
@@ -68,6 +69,7 @@ extension MapFlowController {
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         manager.startUpdatingLocation()
         manager.requestWhenInUseAuthorization()
+        mapViewController.mapView.mapView.delegate = self
     }
 
     fileprivate func setupMapView(withPlaces placesToLook: [Place]?) {
@@ -90,6 +92,22 @@ extension MapFlowController {
         let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.augmentedRealityViewController.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension MapFlowController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation,
+            let title = annotation.title,
+            let tappedPlace = places.filter ({ $0.placeName == title }).first,
+            let imageURL = tappedPlace.icon
+        else {
+                return }
+
+        let pinView = PinView()
+        pinView.titleLabel.text = title
+        pinView.photoImageView.kf.setImage(with: URL(string: imageURL)!)
+        view.detailCalloutAccessoryView = pinView
     }
 }
 
@@ -127,7 +145,7 @@ extension MapFlowController: ARDataSource {
         if let placeAnnotation =  viewForAnnotation as? Place {
             annotationView.annotation = placeAnnotation
             annotationView.delegate = self
-            annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+            annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 60)
         }
 
         return annotationView

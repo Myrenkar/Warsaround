@@ -15,13 +15,14 @@ protocol AnnotationViewDelegate {
 }
 
 final class AnnotationView: ARAnnotationView {
+    lazy var photoImageView = UIImageView(frame: .zero)
     lazy var titleLabel = UILabel(frame: .zero)
     lazy var distanceLabel = UILabel(frame: .zero)
     lazy var phoneNuberLabel = UILabel(frame: .zero)
+    lazy var topStackView = UIStackView(frame: .zero)
     lazy var labelsStackView = UIStackView(frame: .zero)
-    var placeDetails: PlaceDetails?
 
-    
+    var placeDetails: PlaceDetails?
 
     var delegate: AnnotationViewDelegate?
 
@@ -40,7 +41,8 @@ final class AnnotationView: ARAnnotationView {
 
 extension AnnotationView {
     internal func setupProperties() {
-        labelsStackView = UIStackView.init(axis: .vertical, distribution: .equalSpacing, alignment: .center, spacing: 8, arrangedSubviews: [titleLabel, distanceLabel, phoneNuberLabel])
+        topStackView = UIStackView(axis: .horizontal, distribution: .equalSpacing, alignment: .center, spacing: 4, arrangedSubviews: [photoImageView, titleLabel])
+        labelsStackView = UIStackView.init(axis: .vertical, distribution: .equalSpacing, alignment: .center, spacing: 8, arrangedSubviews: [topStackView, distanceLabel, phoneNuberLabel])
 
         distanceLabel.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
         distanceLabel.textColor  = .white
@@ -52,14 +54,17 @@ extension AnnotationView {
         titleLabel.textColor = .red
         titleLabel.text = annotation?.description
 
-
         phoneNuberLabel.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
         phoneNuberLabel.textColor = .blue
         phoneNuberLabel.text = placeDetails?.phoneNumber
+
+        photoImageView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        photoImageView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
     }
 
 
     internal func setupHierarchy() {
+        addSubview(topStackView)
         addSubview(labelsStackView)
     }
 
@@ -67,5 +72,4 @@ extension AnnotationView {
     internal func setupConstraints() {
         labelsStackView.autoPinEdgesToSuperviewEdges()
     }
-
 }
