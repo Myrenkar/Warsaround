@@ -9,12 +9,10 @@
 import Foundation
 
 internal struct PlaceDetailsRequest: APIRequest {
-
-    private let APIKey = "AIzaSyAeEZ2NRyzVmW8IbWcq4J38PheUKfRK-2w"
-
+    let keys = WarsaroundKeys()
     var path: String
 
     init(withPlace place: Place) {
-        path  = "details/json?reference=\(place.reference)&sensor=true&key=\(APIKey)"
+        path  = "details/json?reference=\(place.reference)&sensor=true&key=\(keys.googlePlacesToken)"
     }
 }

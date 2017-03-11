@@ -10,7 +10,7 @@ import Foundation
 
 internal struct PlacesRequest: APIRequest {
 
-    private let APIKey = "AIzaSyAeEZ2NRyzVmW8IbWcq4J38PheUKfRK-2w"
+    let keys = WarsaroundKeys()
 
     let lattitude: Double
     let longitude: Double
@@ -22,6 +22,6 @@ internal struct PlacesRequest: APIRequest {
         self.lattitude = lattitude
         self.longitude = longitude
         self.radius = radius
-        path = "place/nearbysearch/json?location=\(self.lattitude),\(self.longitude)&radius=\(self.radius)&sensor=true&types=establishment&key=\(APIKey)"
+        path = "place/nearbysearch/json?location=\(self.lattitude),\(self.longitude)&radius=\(self.radius)&sensor=true&types=establishment&key=\(keys.googlePlacesToken)"
     }
 }

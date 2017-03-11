@@ -1,0 +1,16 @@
+PODS:
+  - Keys (1.0.0)
+
+DEPENDENCIES:
+  - Keys (from `Pods/CocoaPodsKeys`)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
+SPEC CHECKSUMS:
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+
+PODFILE CHECKSUM: f297950fb9d1b65e1dfcf07450440e6af4c1c9f5
+
+COCOAPODS: 1.2.0

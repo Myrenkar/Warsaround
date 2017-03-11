@@ -15,6 +15,7 @@
 		730FAC921E3D1E8C002DE48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */; };
 		730FAC9D1E3D1FA8002DE48C /* WarsaroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */; };
 		731576D81E634C8B0028FBD6 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731576D71E634C8B0028FBD6 /* MapViewModel.swift */; };
+		732EEDC21E73F3CD003B0394 /* WarsaroundKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 732EEDC11E73F3CD003B0394 /* WarsaroundKeys.m */; };
 		733068DF1E5CB3D200C343B5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068DE1E5CB3D200C343B5 /* Geometry.swift */; };
 		733068E11E5CB41C00C343B5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E01E5CB41C00C343B5 /* Location.swift */; };
 		733068E31E5CB52100C343B5 /* Viewport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733068E21E5CB52100C343B5 /* Viewport.swift */; };
@@ -77,6 +78,9 @@
 		730FAC911E3D1E8C002DE48C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarsaroundTests.swift; sourceTree = "<group>"; };
 		731576D71E634C8B0028FBD6 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewModel.swift; path = Screens/Map/MapViewModel.swift; sourceTree = "<group>"; };
+		732EEDBC1E73F3B4003B0394 /* Warsaround-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Warsaround-Bridging-Header.h"; sourceTree = "<group>"; };
+		732EEDC01E73F3CD003B0394 /* WarsaroundKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarsaroundKeys.h; path = Pods/CocoaPodsKeys/WarsaroundKeys.h; sourceTree = SOURCE_ROOT; };
+		732EEDC11E73F3CD003B0394 /* WarsaroundKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarsaroundKeys.m; path = Pods/CocoaPodsKeys/WarsaroundKeys.m; sourceTree = SOURCE_ROOT; };
 		733068DE1E5CB3D200C343B5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Models/Geometry.swift; sourceTree = "<group>"; };
 		733068E01E5CB41C00C343B5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Models/Location.swift; sourceTree = "<group>"; };
 		733068E21E5CB52100C343B5 /* Viewport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Viewport.swift; path = Models/Viewport.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 		730FAC931E3D1EBC002DE48C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				732EEDBB1E73F38C003B0394 /* Bridging Header */,
 				73FDD19C1E59BF4600F8DDC3 /* AppFlow */,
 				73FDD1AB1E59C48300F8DDC3 /* Extensions */,
 				73FDD1A11E59BF8100F8DDC3 /* Flow Controllers */,
@@ -248,6 +253,16 @@
 				730FAC981E3D1EE9002DE48C /* WarsaroundTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		732EEDBB1E73F38C003B0394 /* Bridging Header */ = {
+			isa = PBXGroup;
+			children = (
+				732EEDBC1E73F3B4003B0394 /* Warsaround-Bridging-Header.h */,
+				732EEDC01E73F3CD003B0394 /* WarsaroundKeys.h */,
+				732EEDC11E73F3CD003B0394 /* WarsaroundKeys.m */,
+			);
+			path = "Bridging Header";
 			sourceTree = "<group>";
 		};
 		733068E41E5CB67B00C343B5 /* Protocols */ = {
@@ -500,6 +515,7 @@
 					730FAC641E3D1D19002DE48C = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = Q74286BTD6;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -601,6 +617,7 @@
 				73FDD1CA1E59D72700F8DDC3 /* APIError.swift in Sources */,
 				733068F21E5D718D00C343B5 /* FlowController.swift in Sources */,
 				73FDD1D31E5A100E00F8DDC3 /* URLComponents.swift in Sources */,
+				732EEDC21E73F3CD003B0394 /* WarsaroundKeys.m in Sources */,
 				733068EC1E5D044700C343B5 /* PlaceDetails.swift in Sources */,
 				733068E61E5CD70700C343B5 /* JSONValueDeserializable.swift in Sources */,
 				734625DF1E3D271200466527 /* MapView.swift in Sources */,
@@ -688,6 +705,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Development;
@@ -697,14 +715,18 @@
 			baseConfigurationReference = 734625E41E3D298600466527 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Q74286BTD6;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Warsaround/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.smartapss.Warsaround;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Warsaround/Sources/Bridging Header/Warsaround-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Development;
